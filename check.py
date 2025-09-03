@@ -322,7 +322,7 @@ st.download_button("엑셀 다운로드 - 정리결과(매칭 전)", data=buf.ge
 # -----------------------------
 st.header("2) 매입전자세금계산서목록 업로드 & 매칭")
 ht_file = st.file_uploader("매입전자세금계산서목록 (최근 1달)", type=["xlsx","xls"])
-tol = st.number_input("금액 오차 허용(원)", min_value=0, max_value=10000, value=100, step=3)
+tol = st.number_input("금액 오차 허용(원)", min_value=0, max_value=10000, value=3, step=1)
 
 if ht_file:
     hometax_df = load_hometax_amounts(ht_file)
@@ -353,4 +353,5 @@ if ht_file:
                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 else:
     st.info("매칭하려면 매입전자세금계산서목록 파일을 업로드하세요.")
+
 
